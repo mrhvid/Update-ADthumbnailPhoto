@@ -39,7 +39,9 @@ ls -File | Set-ImageSize -Destination C:\temp\pics\96\ -WidthPx 96 -HeightPx 96
                         })] 
         [String]$Path,
 
-        [Switch]$UseRSAT = $false
+        [Switch]$UseRSAT = $false,
+
+        [Switch]$Ignore96pxCheck = $false
     )
 
     Begin
@@ -56,14 +58,14 @@ ls -File | Set-ImageSize -Destination C:\temp\pics\96\ -WidthPx 96 -HeightPx 96
       $img.Dispose()     
 
       Write-Verbose -Message "Image Height: $($Size.Height)px Width: $($Size.Width)px"
-   
-      If (!($Size.Height -le 96 -and $Size.Width -le 96)) {
-      
-        Write-Error -Message "Image Height: $($Size.Height)px Width: $($Size.Width)px (Resize to 96x96 px)"
-        return
-      
-      }                        
-
+      If (! $Ignore96pxCheck) {
+        If (!($Size.Height -le 96 -and $Size.Width -le 96)) {
+        
+          Write-Error -Message "Image Height: $($Size.Height)px Width: $($Size.Width)px (Resize to 96x96 px)"
+          return
+        
+        }    
+      }
         
         if ($UseRSAT) { 
           # Using RSAT Set-ADUser to update photo
