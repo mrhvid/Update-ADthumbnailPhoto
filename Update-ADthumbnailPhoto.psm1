@@ -7,9 +7,9 @@
    Requires a .jpg
    Less than 10 KB and 96x96 is recommended thumbnail size. See: http://blogs.technet.com/b/exchange/archive/2010/03/10/3409495.aspx
 .NOTES
-   Created by Jonas Sommer - DKPJOSN 2014
+   Created by Jonas Sommer - 2014
 .EXAMPLE
-   Update-DSSadUserPhoto josoni \\dss-dk-app-003\Data\MedarbejderPhoto\cap\AD\Backup\josoni96x96.jpg
+   Update-DSSadUserPhoto josoni \\Fileserver\Data\MedarbejderPhoto\cap\AD\Backup\josoni96x96.jpg
 .EXAMPLE
    This WILL fail!
 
