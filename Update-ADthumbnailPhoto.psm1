@@ -52,10 +52,18 @@ ls -File | Set-ImageSize -Destination C:\temp\pics\96\ -WidthPx 96 -HeightPx 96
  
       # Check size of image (96x96 pixels is preferred)
       Add-Type -AssemblyName System.Drawing
-   
-      $img = [System.Drawing.Image]::FromFile($_)
-      $Size = $img.Clone() | Select-Object Width, Height
-      $img.Dispose()     
+
+      try
+      {
+        $img = [System.Drawing.Image]::FromFile($Path)
+        $Size = $img.Clone() | Select-Object Width, Height
+        $img.Dispose()  
+      }
+      catch [System.Exception]
+      {
+          Write-Error -Message "Error opening image file. ($Path)"
+          return
+      }
 
       Write-Verbose -Message "Image Height: $($Size.Height)px Width: $($Size.Width)px"
       If (! $Ignore96pxCheck) {
