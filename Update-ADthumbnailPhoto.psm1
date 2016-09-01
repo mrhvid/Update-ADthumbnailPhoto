@@ -59,7 +59,7 @@ ls -File | Set-ImageSize -Destination C:\temp\pics\96\ -WidthPx 96 -HeightPx 96
         $Size = $img.Clone() | Select-Object Width, Height
         $img.Dispose()  
       }
-      catch [System.Exception]
+      catch
       {
           Write-Error -Message "Error opening image file. ($Path)"
           return
