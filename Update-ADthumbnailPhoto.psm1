@@ -14,7 +14,7 @@
    This WILL fail!
 
    Update-DSSadUserPhoto josoni .\josoni.jpg
-
+                                ^^
    This WILL fail! This is a known bug. 
 
 .EXAMPLE
