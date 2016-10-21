@@ -28,9 +28,9 @@ function Get-jsADthumbnailPhoto
 
     Begin
     {
-        # Testing Github
+        # Testing Github 3
 
-        # Wuuhu it works :) Hvorfor faen ?
+        
     }
     Process
     {
